@@ -51,10 +51,10 @@ void Draw(SDL_Renderer *renderer, int range, Complex center, int size, int itera
                 if (mod(z) > 2)
                     break;
             }
-            if (i == iteration)
-            {
-                SDL_RenderDrawPoint(renderer, k, j);
-            }
+            int grayscale = i * 255 / iteration;
+
+            SDL_SetRenderDrawColor(renderer, grayscale, grayscale, grayscale, 255);
+            SDL_RenderDrawPoint(renderer, k, j);
         }
     }
 
